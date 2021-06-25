@@ -1,3 +1,20 @@
+# Protect User’ Privacy from Voice Separation via Time-Delay-Robust AdversarialAttack
+
+本代码为清华大学 2021 春季学期《多媒体计算》课程期末 Final Project 的样例代码。
+代码基于 https://github.com/mindslab-ai/voicefilter.git。
+
+详情参考 `隐私保护.pptx` 和 `FinalProject.pdf` 以了解本 Project 的目的。
+
+要复现本项目的代码，首先根据下述 VoiceFilter 的 Readme 下载 `LibriSpeech dataset` 中的 `train-clean-100.tar.gz` 以及 `dev-clean.tar.gz` 并按照下述 `Preprocess wav files` 处理好分别作为训练集和测试集。处理完后需要修改 `config/config.yaml` 中的对应路径。
+
+预训练的 VoiceFilter 模型存放在 `voicefilter/chkpt` 目录下，一共有三个不同初始种子训练的模型。 所以如果只想查看 Adversarial Attack 的效果，只准备测试集即可。
+
+`pretrained model for speaker recognition system` 已经存放于 `voicefilter/embedder.pt`。
+
+数据准备完毕后，使用 `jupyter notebook` 打开 `DemoCode.ipynb` 即可。
+
+-------
+
 # VoiceFilter
 
 ## Note from Seung-won (2020.10.25)

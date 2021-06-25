@@ -44,6 +44,7 @@ class VFDataset(Dataset):
     def __init__(self, hp, args, train):
         def find_all(file_format):
             return sorted(glob.glob(os.path.join(self.data_dir, file_format)))
+
         self.hp = hp
         self.args = args
         self.train = train
@@ -56,7 +57,7 @@ class VFDataset(Dataset):
         self.mixed_mag_list = find_all(hp.form.mixed.mag)
 
         assert len(self.dvec_list) == len(self.target_wav_list) == len(self.mixed_wav_list) == \
-            len(self.target_mag_list) == len(self.mixed_mag_list), "number of training files must match"
+               len(self.target_mag_list) == len(self.mixed_mag_list), "number of training files must match"
         assert len(self.dvec_list) != 0, \
             "no training file found"
 
@@ -73,7 +74,7 @@ class VFDataset(Dataset):
         dvec_mel = self.audio.get_mel(dvec_wav)
         dvec_mel = torch.from_numpy(dvec_mel).float()
 
-        if self.train: # need to be fast
+        if self.train:  # need to be fast
             target_mag = torch.load(self.target_mag_list[idx])
             mixed_mag = torch.load(self.mixed_mag_list[idx])
             return dvec_mel, target_mag, mixed_mag
